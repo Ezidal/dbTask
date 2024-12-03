@@ -1,0 +1,33 @@
+psql -U postgres -c "ALTER ROLE postgres PASSWORD 'test'"
+
+rm -rf /var/lib/postgresql/data/*
+pg_basebackup -P -R -X stream -c fast -h 172.22.0.3 -U master -D /var/lib/postgresql/data
+
+SELECT * FROM pg_stat_replication;
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE tasks (
+    task_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    task_description TEXT NOT NULL,
+    is_completed BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO users (username, email) VALUES 
+('john_doe', 'john@example.com'),
+('jane_smith', 'jane@example.com');
+
+INSERT INTO tasks (user_id, task_description) VALUES 
+(1, 'Complete the project report'),
+(1, 'Attend the team meeting'),
+(2, 'Prepare presentation slides');
+
+SELECT * FROM users;
+SELECT * FROM tasks;

@@ -1,0 +1,120 @@
+2024-12-03 11:50:26.428 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 11:50:26.428 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 11:50:26.428 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 11:50:26.434 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 11:50:26.454 UTC [31] LOG:  database system was shut down at 2024-12-03 11:50:23 UTC
+2024-12-03 11:50:26.493 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 11:56:53.778 UTC [1] LOG:  received fast shutdown request
+2024-12-03 11:56:53.780 UTC [1] LOG:  aborting any active transactions
+2024-12-03 11:56:53.785 UTC [1] LOG:  background worker "logical replication launcher" (PID 34) exited with exit code 1
+2024-12-03 11:56:53.788 UTC [29] LOG:  shutting down
+2024-12-03 11:56:53.845 UTC [1] LOG:  database system is shut down
+2024-12-03 11:56:56.168 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 11:56:56.168 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 11:56:56.168 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 11:56:56.173 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 11:56:56.198 UTC [31] LOG:  database system was shut down at 2024-12-03 11:56:53 UTC
+2024-12-03 11:56:56.236 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:00:34.218 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:00:34.222 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:00:34.225 UTC [1] LOG:  background worker "logical replication launcher" (PID 34) exited with exit code 1
+2024-12-03 12:00:34.232 UTC [29] LOG:  shutting down
+2024-12-03 12:00:34.321 UTC [1] LOG:  database system is shut down
+2024-12-03 12:00:37.093 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:00:37.095 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:00:37.095 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:00:37.105 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:00:37.137 UTC [31] LOG:  database system was shut down at 2024-12-03 12:00:34 UTC
+2024-12-03 12:00:37.178 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:02:58.528 UTC [46] ERROR:  syntax error at or near "AND" at character 60
+2024-12-03 12:02:58.528 UTC [46] STATEMENT:  SELECT attnum, attname FROM pg_attribute WHERE attrelid =  AND attnum > 0
+2024-12-03 12:02:58.528 UTC [46] ERROR:  syntax error at or near "AND" at character 165
+2024-12-03 12:02:58.528 UTC [46] STATEMENT:  SELECT relname, indisunique::int, indisprimary::int, indkey, indoption, (indpred IS NOT NULL)::int as indispartial FROM pg_index i, pg_class ci WHERE i.indrelid =  AND ci.oid = i.indexrelid
+2024-12-03 12:05:51.713 UTC [66] ERROR:  syntax error at or near "AND" at character 60
+2024-12-03 12:05:51.713 UTC [66] STATEMENT:  SELECT attnum, attname FROM pg_attribute WHERE attrelid =  AND attnum > 0
+2024-12-03 12:05:51.714 UTC [66] ERROR:  syntax error at or near "AND" at character 165
+2024-12-03 12:05:51.714 UTC [66] STATEMENT:  SELECT relname, indisunique::int, indisprimary::int, indkey, indoption, (indpred IS NOT NULL)::int as indispartial FROM pg_index i, pg_class ci WHERE i.indrelid =  AND ci.oid = i.indexrelid
+2024-12-03 12:23:52.164 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:23:52.171 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:23:52.177 UTC [1] LOG:  background worker "logical replication launcher" (PID 34) exited with exit code 1
+2024-12-03 12:23:52.179 UTC [29] LOG:  shutting down
+2024-12-03 12:23:52.266 UTC [1] LOG:  database system is shut down
+2024-12-03 12:23:57.103 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:23:57.103 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:23:57.103 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:23:57.109 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:23:57.143 UTC [31] LOG:  database system was shut down at 2024-12-03 12:23:52 UTC
+2024-12-03 12:23:57.193 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:24:32.769 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:24:32.773 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:24:32.776 UTC [1] LOG:  background worker "logical replication launcher" (PID 34) exited with exit code 1
+2024-12-03 12:24:32.779 UTC [29] LOG:  shutting down
+2024-12-03 12:24:32.866 UTC [1] LOG:  database system is shut down
+2024-12-03 12:24:36.020 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:24:36.020 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:24:36.021 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:24:36.026 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:24:36.056 UTC [32] LOG:  database system was shut down at 2024-12-03 12:24:32 UTC
+2024-12-03 12:24:36.094 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:25:04.770 UTC [36] ERROR:  requested WAL segment 000000010000000000000003 has already been removed
+2024-12-03 12:25:04.770 UTC [36] STATEMENT:  START_REPLICATION 0/3000000 TIMELINE 1
+2024-12-03 12:25:06.206 UTC [39] LOG:  could not send data to client: Broken pipe
+2024-12-03 12:25:06.206 UTC [39] STATEMENT:  BASE_BACKUP ( LABEL 'pg_basebackup base backup',  PROGRESS,  CHECKPOINT 'fast',  WAIT 0,  MANIFEST 'yes',  TARGET 'client')
+2024-12-03 12:25:06.206 UTC [39] FATAL:  connection to client lost
+2024-12-03 12:25:06.206 UTC [39] STATEMENT:  BASE_BACKUP ( LABEL 'pg_basebackup base backup',  PROGRESS,  CHECKPOINT 'fast',  WAIT 0,  MANIFEST 'yes',  TARGET 'client')
+2024-12-03 12:25:06.206 UTC [39] WARNING:  aborting backup due to backend exiting before pg_backup_stop was called
+2024-12-03 12:25:29.567 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:25:29.574 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:25:29.577 UTC [1] LOG:  background worker "logical replication launcher" (PID 35) exited with exit code 1
+2024-12-03 12:25:29.580 UTC [30] LOG:  shutting down
+2024-12-03 12:25:29.646 UTC [1] LOG:  database system is shut down
+2024-12-03 12:25:33.754 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:25:33.755 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:25:33.755 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:25:33.763 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:25:33.802 UTC [31] LOG:  database system was shut down at 2024-12-03 12:25:29 UTC
+2024-12-03 12:25:33.846 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:26:06.887 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:26:06.891 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:26:06.894 UTC [1] LOG:  background worker "logical replication launcher" (PID 34) exited with exit code 1
+2024-12-03 12:26:06.895 UTC [29] LOG:  shutting down
+2024-12-03 12:26:06.981 UTC [1] LOG:  database system is shut down
+2024-12-03 12:26:09.988 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:26:09.989 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:26:09.989 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:26:09.994 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:26:10.028 UTC [31] LOG:  database system was shut down at 2024-12-03 12:26:06 UTC
+2024-12-03 12:26:10.075 UTC [1] LOG:  database system is ready to accept connections
+2024-12-03 12:27:43.500 UTC [46] ERROR:  syntax error at or near "AND" at character 60
+2024-12-03 12:27:43.500 UTC [46] STATEMENT:  SELECT attnum, attname FROM pg_attribute WHERE attrelid =  AND attnum > 0
+2024-12-03 12:27:43.500 UTC [46] ERROR:  syntax error at or near "AND" at character 165
+2024-12-03 12:27:43.500 UTC [46] STATEMENT:  SELECT relname, indisunique::int, indisprimary::int, indkey, indoption, (indpred IS NOT NULL)::int as indispartial FROM pg_index i, pg_class ci WHERE i.indrelid =  AND ci.oid = i.indexrelid
+2024-12-03 12:33:26.207 UTC [35] ERROR:  requested WAL segment 000000010000000000000004 has already been removed
+2024-12-03 12:33:26.207 UTC [35] STATEMENT:  START_REPLICATION 0/4000000 TIMELINE 1
+2024-12-03 12:34:12.078 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:34:12.079 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:34:12.079 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:34:12.086 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:34:12.103 UTC [30] LOG:  database system was interrupted; last known up at 2024-12-03 12:33:26 UTC
+2024-12-03 12:34:15.786 UTC [30] LOG:  starting backup recovery with redo LSN 0/5000028, checkpoint LSN 0/5000080, on timeline ID 1
+2024-12-03 12:34:15.789 UTC [30] LOG:  entering standby mode
+2024-12-03 12:34:15.809 UTC [30] LOG:  redo starts at 0/5000028
+2024-12-03 12:34:15.812 UTC [30] LOG:  completed backup recovery with redo LSN 0/5000028 and end LSN 0/5000158
+2024-12-03 12:34:15.812 UTC [30] LOG:  consistent recovery state reached at 0/5000158
+2024-12-03 12:34:15.812 UTC [1] LOG:  database system is ready to accept read-only connections
+2024-12-03 12:34:15.829 UTC [31] LOG:  started streaming WAL from primary at 0/6000000 on timeline 1
+2024-12-03 12:34:21.642 UTC [1] LOG:  received fast shutdown request
+2024-12-03 12:34:21.652 UTC [1] LOG:  aborting any active transactions
+2024-12-03 12:34:21.654 UTC [31] FATAL:  terminating walreceiver process due to administrator command
+2024-12-03 12:34:21.657 UTC [28] LOG:  shutting down
+2024-12-03 12:34:25.882 UTC [1] LOG:  starting PostgreSQL 17.2 (Debian 17.2-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2024-12-03 12:34:25.883 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2024-12-03 12:34:25.883 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2024-12-03 12:34:25.888 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2024-12-03 12:34:25.913 UTC [31] LOG:  database system was shut down in recovery at 2024-12-03 12:34:21 UTC
+2024-12-03 12:34:25.926 UTC [31] LOG:  entering standby mode
+2024-12-03 12:34:25.941 UTC [31] LOG:  redo starts at 0/5000028
+2024-12-03 12:34:25.951 UTC [31] LOG:  consistent recovery state reached at 0/6000060
+2024-12-03 12:34:25.951 UTC [1] LOG:  database system is ready to accept read-only connections
+2024-12-03 12:34:25.952 UTC [31] LOG:  invalid record length at 0/6000060: expected at least 24, got 0
+2024-12-03 12:34:25.971 UTC [32] LOG:  started streaming WAL from primary at 0/6000000 on timeline 1

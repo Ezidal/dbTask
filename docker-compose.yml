@@ -1,0 +1,58 @@
+services:
+  master:
+    image: postgres
+    container_name: master
+    restart: always
+    environment:
+      POSTGRES_USER: master
+      POSTGRES_PASSWORD: master
+      POSTGRES_DB: db
+    volumes:
+      - ./master_data/:/var/lib/postgresql/data
+    networks:
+      - bignet
+  
+  slave:
+    image: postgres
+    container_name: slave
+    restart: always
+    environment:
+      POSTGRES_USER: slave
+      POSTGRES_PASSWORD: slave
+    depends_on:
+      - master
+    volumes:
+      - ./slave_data/:/var/lib/postgresql/data
+    networks:
+      - bignet
+
+  slave1:
+    image: postgres
+    container_name: slave1
+    restart: always
+    environment:
+      POSTGRES_USER: slave
+      POSTGRES_PASSWORD: slave
+    depends_on:
+      - master
+    volumes:
+      - ./slave_data1/:/var/lib/postgresql/data
+    networks:
+      - bignet  
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - bignet
+
+volumes:
+  master_data:
+  slave_data:
+
+networks:
+  bignet:
+    external: true
