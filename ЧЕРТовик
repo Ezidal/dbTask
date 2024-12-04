@@ -1,10 +1,29 @@
 psql -U postgres -c "ALTER ROLE postgres PASSWORD 'test'"
 
-rm -rf /var/lib/postgresql/data/*
+rm -rf /var/lib/postgresql/data/\*
 pg_basebackup -P -R -X stream -c fast -h 172.22.0.3 -U master -D /var/lib/postgresql/data
-
+#################
 SELECT * FROM pg_stat_replication;
-
+####################
+    # command: |
+    #   postgres
+    #   -c listen_addresses = '*'
+    #   -c max_connections = 10
+    #   -c shared_buffers=128MB
+    #   -c work_mem=64MB
+    #   -c wal_level = replica
+    #   -c wal_log_hints = on	
+    #   -с max_wal_size = 1GB
+    #   -с min_wal_size = 80MB
+    #   -с max_wal_senders = 3
+    #   -с hot_standby = on
+    #   -с logging_collector = on	
+    #   -с log_filename = 'postgresql.log'
+    #   -с log_checkpoints = off
+    #   -с log_connections = off
+    #   -с log_disconnections = off
+    #   -с log_hostname = on
+###########################
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
@@ -31,3 +50,4 @@ INSERT INTO tasks (user_id, task_description) VALUES
 
 SELECT * FROM users;
 SELECT * FROM tasks;
+############################

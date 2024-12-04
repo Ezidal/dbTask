@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: master
       POSTGRES_DB: db
     volumes:
-      - ./master_data/:/var/lib/postgresql/data
+       - master:/var/lib/postgresql/data/
     networks:
       - bignet
   
@@ -21,8 +21,6 @@ services:
       POSTGRES_PASSWORD: slave
     depends_on:
       - master
-    volumes:
-      - ./slave_data/:/var/lib/postgresql/data
     networks:
       - bignet
 
@@ -35,8 +33,6 @@ services:
       POSTGRES_PASSWORD: slave
     depends_on:
       - master
-    volumes:
-      - ./slave_data1/:/var/lib/postgresql/data
     networks:
       - bignet  
 
@@ -46,12 +42,13 @@ services:
     restart: always
     ports:
       - 8080:8080
+    depends_on:
+      - master
     networks:
       - bignet
 
 volumes:
-  master_data:
-  slave_data:
+  master:
 
 networks:
   bignet:
