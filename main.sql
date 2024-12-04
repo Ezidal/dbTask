@@ -43,9 +43,17 @@ CREATE FOREIGN TABLE foreign_tasks2 (
 )
 SERVER shard2_server
 OPTIONS (schema_name 'public', table_name 'tasks');
-
-
+#########################предсталения
 CREATE VIEW all_users AS
-SELECT user_id, username, email FROM foreign_users1
+SELECT user_id, username, email, 'shard1' AS source
+FROM foreign_users1
 UNION ALL
-SELECT user_id, username, email FROM foreign_users2;
+SELECT user_id, username, email, 'shard2' AS source
+FROM foreign_users2;
+
+CREATE VIEW all_tasks AS
+SELECT task_id, user_id, task_description, is_completed, created_at, 'shard1' AS source
+FROM foreign_tasks1
+UNION ALL
+SELECT task_id, user_id, task_description, is_completed, created_at, 'shard2' AS source
+FROM foreign_tasks2;
