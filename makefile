@@ -22,5 +22,5 @@ set1:
 	docker cp ./pg_hba.conf master:/var/lib/postgresql/data/pg_hba.conf
 
 set2:
-	docker exec -it slave1 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_USER) -D /var/lib/postgresql/data;"
-	docker exec -it slave2 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_USER) -D /var/lib/postgresql/data;"
+	docker exec -it slave1 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_REPL_USER) -D /var/lib/postgresql/data;"
+	docker exec -it slave2 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_REPL_USER) -D /var/lib/postgresql/data;"

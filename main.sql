@@ -1,10 +1,12 @@
 CREATE EXTENSION postgres_fdw;
 
+CREATE ROLE repluser WITH REPLICATION LOGIN PASSWORD 'repluser';
+
 CREATE SERVER shard1_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'shard1', dbname 'db', port '5432');
 CREATE SERVER shard2_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'shard2', dbname 'db', port '5432');
 
-CREATE USER MAPPING FOR master SERVER shard1_server OPTIONS (user 'shard', password 'shard');
-CREATE USER MAPPING FOR master SERVER shard2_server OPTIONS (user 'shard', password 'shard');
+CREATE USER MAPPING FOR postgres SERVER shard1_server OPTIONS (user 'shardmaster', password '0000');
+CREATE USER MAPPING FOR postgres SERVER shard2_server OPTIONS (user 'shardmaster', password '0000');
 
 CREATE FOREIGN TABLE foreign_users1 (
     user_id INT,
@@ -30,10 +32,3 @@ FROM foreign_users1
 UNION ALL
 SELECT user_id, username, email, 'shard2' AS source
 FROM foreign_users2;
-
-CREATE VIEW all_tasks AS
-SELECT task_id, user_id, task_description, is_completed, created_at, 'shard1' AS source
-FROM foreign_tasks1
-UNION ALL
-SELECT task_id, user_id, task_description, is_completed, created_at, 'shard2' AS source
-FROM foreign_tasks2;
