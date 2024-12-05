@@ -15,16 +15,6 @@ CREATE FOREIGN TABLE foreign_users1 (
 SERVER shard1_server
 OPTIONS (schema_name 'public', table_name 'users');
 
-CREATE FOREIGN TABLE foreign_tasks1 (
-    task_id INT,
-    user_id INT,
-    task_description TEXT,
-    is_completed BOOLEAN,
-    created_at TIMESTAMP
-)
-SERVER shard1_server
-OPTIONS (schema_name 'public', table_name 'tasks');
-
 CREATE FOREIGN TABLE foreign_users2 (
     user_id INT,
     username VARCHAR(50),
@@ -34,16 +24,6 @@ CREATE FOREIGN TABLE foreign_users2 (
 SERVER shard2_server
 OPTIONS (schema_name 'public', table_name 'users');
 
-CREATE FOREIGN TABLE foreign_tasks2 (
-    task_id INT,
-    user_id INT,
-    task_description TEXT,
-    is_completed BOOLEAN,
-    created_at TIMESTAMP
-)
-SERVER shard2_server
-OPTIONS (schema_name 'public', table_name 'tasks');
-#########################предсталения
 CREATE VIEW all_users AS
 SELECT user_id, username, email, 'shard1' AS source
 FROM foreign_users1
