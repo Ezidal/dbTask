@@ -10,7 +10,8 @@ services:
       #POSTGRES_HOST_AUTH_METHOD: "trust\nhost replication all ${SUBNET1} trust"
     volumes:
        - master:/var/lib/postgresql/data/
-       - ./0main.sql:/docker-entrypoint-initdb.d/0main.sql
+       - ./main.sql:/docker-entrypoint-initdb.d/0main.sql
+       - ./rules_for_view.sql:/docker-entrypoint-initdb.d/rules_for_view.sql
       # - ./inserts_func.sql:/docker-entrypoint-initdb.d/inserts_func.sql
       # - ./templates/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
@@ -26,8 +27,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
        - shard1:/var/lib/postgresql/data/
-       - ./templates/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
-       - ./templates/fst.sql:/docker-entrypoint-initdb.d/fst.sql
+       - ./templates/shard_1_create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      # - ./templates/fst.sql:/docker-entrypoint-initdb.d/fst.sql
     depends_on:
       - master
     networks:
@@ -43,8 +44,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
        - shard2:/var/lib/postgresql/data/
-       - ./templates/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
-       - ./templates/scd.sql:/docker-entrypoint-initdb.d/scd.sql
+       - ./templates/shard_2_create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      # - ./templates/scd.sql:/docker-entrypoint-initdb.d/scd.sql
     depends_on:
       - master    
     networks:

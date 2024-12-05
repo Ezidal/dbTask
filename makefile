@@ -40,7 +40,7 @@ login:
 	docker exec -it master psql -U postgres -d db -c "CREATE USER MAPPING FOR ${POSTGRES_USER} SERVER shard2_server OPTIONS (user '${SHARD_USER}', password '${SHARD_PASSWORD}');"
 	
 
-	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE local_users TO ${SHARD_USER};"
 	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE foreign_users1 TO ${SHARD_USER};"
 	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE foreign_users2 TO ${SHARD_USER};"
-	docker exec -it master psql -U postgres -d db -c "GRANT SELECT ON all_users TO ${SHARD_USER};"
+	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE other_users TO ${SHARD_USER};"
+	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON ALL_USERS TO ${SHARD_USER};"
