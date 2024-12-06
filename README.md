@@ -27,3 +27,11 @@ make down
 ```
 make restart
 ```
+Зашифровать .env файл (при наличии ключа .key)
+```
+make encrypt
+```
+Дешифровать .env файл (при наличии ключа .key)
+```
+make decrypt
+```
