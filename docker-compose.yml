@@ -12,8 +12,6 @@ services:
        - master:/var/lib/postgresql/data/
        - ./main.sql:/docker-entrypoint-initdb.d/0main.sql
        - ./rules_for_view.sql:/docker-entrypoint-initdb.d/rules_for_view.sql
-      # - ./inserts_func.sql:/docker-entrypoint-initdb.d/inserts_func.sql
-      # - ./templates/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
       - net
 

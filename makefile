@@ -22,6 +22,7 @@ restart:
 set1: 
 	docker cp ./postgresql.conf master:/var/lib/postgresql/data/postgresql.conf
 	docker cp ./pg_hba.conf master:/var/lib/postgresql/data/pg_hba.conf
+
 set2:
 	docker exec -it slave1 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_REPL_USER) -D /var/lib/postgresql/data;"
 	docker exec -it slave2 bash -c "rm -rf /var/lib/postgresql/data/*; pg_basebackup -P -R -X stream -c fast -h $(HOST) -U $(POSTGRES_REPL_USER) -D /var/lib/postgresql/data;"
@@ -44,3 +45,8 @@ login:
 	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE foreign_users2 TO ${SHARD_USER};"
 	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON TABLE other_users TO ${SHARD_USER};"
 	docker exec -it master psql -U postgres -d db -c "GRANT ALL PRIVILEGES ON ALL_USERS TO ${SHARD_USER};"
+
+	docker cp ./pg_hba.conf shard1:/var/lib/postgresql/data/pg_hba.conf
+	docker cp ./pg_hba.conf shard2:/var/lib/postgresql/data/pg_hba.conf
+	docker cp ./postgresql.conf shard1:/var/lib/postgresql/data/postgresql.conf
+	docker cp ./postgresql.conf shard2:/var/lib/postgresql/data/postgresql.conf
