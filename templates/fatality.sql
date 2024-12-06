@@ -1,25 +1,4 @@
--- INSERT INTO all_users (username, email)
--- VALUES 
---     ('olivia.miller', 'olivia.miller@domain.ru'),
---     ('noah.davis', 'noah.davis@domain.ru'),
---     ('ava.garcia', 'ava.garcia@domain.ru'),
---     ('liam.rodriguez', 'liam.rodriguez@domain.ru'),
---     ('sophia.wilson', 'sophia.wilson@domain.ru'),
---     ('benjamin.martinez', 'benjamin.martinez@domain.ru'),
---     ('ella.hernandez', 'ella.hernandez@domain.ru'),
---     ('lucas.lopez', 'lucas.lopez@domain.ru'),
---     ('mia.gonzalez', 'mia.gonzalez@domain.ru'),
---     ('jack.smith', 'jack.smith@domain.ru'),
---     ('alice.smith', 'alice.smith@domain.com'),
---     ('bob.johnson', 'bob.johnson@domain.com'),
---     ('charlie.brown', 'charlie.brown@domain.com'),
---     ('david.wilson', 'david.wilson@domain.com'),
---     ('eve.davis', 'eve.davis@domain.com'),
---     ('frank.miller', 'frank.miller@domain.com'),
---     ('grace.lee', 'grace.lee@domain.com'),
---     ('henry.thompson', 'henry.thompson@domain.com'),
---     ('isabella.moore', 'isabella.moore@domain.com'),
---     ('jack.white', 'jack.white@domain.com');
+
 INSERT INTO all_users (user_id, username, email)
 VALUES 
     (1, 'olivia.miller', 'olivia.miller@domain.ru'),

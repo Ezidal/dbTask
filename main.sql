@@ -4,7 +4,6 @@ CREATE SERVER shard1_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'sha
 CREATE SERVER shard2_server FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'shard2', dbname 'db', port '5432');
 
 CREATE FOREIGN TABLE foreign_users1 (
-    -- source VARCHAR(50) not NULL,
     user_id INT,
     username VARCHAR(50),
     email VARCHAR(100),
@@ -39,13 +38,3 @@ FROM foreign_users2
 UNION ALL
 SELECT 'other' AS source, *
 FROM other_users;
-
-
-
-
--- CREATE VIEW all_users AS
--- SELECT 'shard1' AS source, user_id, username, email
--- FROM foreign_users1
--- UNION ALL
--- SELECT 'shard2' AS source, user_id, username, email
--- FROM foreign_users2;

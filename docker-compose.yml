@@ -1,6 +1,6 @@
 services:
   master:
-    image: postgres
+    image: postgres:17
     container_name: master
     restart: always
     environment:
@@ -16,7 +16,7 @@ services:
       - net
 
   shard1:
-    image: postgres
+    image: postgres:17
     container_name: shard1
     restart: always
     environment:
@@ -33,7 +33,7 @@ services:
       - net
   
   shard2:
-    image: postgres
+    image: postgres:17
     container_name: shard2
     restart: always
     environment:
@@ -52,7 +52,7 @@ services:
     
   
   slave1:
-    image: postgres
+    image: postgres:17
     container_name: slave1
     restart: always
     environment:
@@ -64,7 +64,7 @@ services:
       - net
 
   slave2:
-    image: postgres
+    image: postgres:17
     container_name: slave2
     restart: always
     environment:

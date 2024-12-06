@@ -5,5 +5,3 @@ CREATE TABLE users (
     CONSTRAINT check_domain CHECK (email LIKE '%@%.ru'),
     created_at TIMESTAMP DEFAULT NOW()
 );
-
-CREATE index check_email_idx ON users USING btree(email)
