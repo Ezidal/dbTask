@@ -11,7 +11,7 @@ services:
     volumes:
        - master:/var/lib/postgresql/data/
        - ./main.sql:/docker-entrypoint-initdb.d/0main.sql
-       - ./rules_for_view.sql:/docker-entrypoint-initdb.d/rules_for_view.sql
+       - ./templates/rules_for_view.sql:/docker-entrypoint-initdb.d/rules_for_view.sql
     networks:
       - net
 
