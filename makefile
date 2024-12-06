@@ -3,7 +3,7 @@ include .env
 export
 endif
 
-.PHONY: up down restart set1 set2 login
+.PHONY: up down restart set1 set2 login encrypt decrypt
 up:
 	docker network create --subnet=${SUBNET} --gateway=$(GATEWAY) net
 	docker compose up -d
@@ -50,3 +50,21 @@ login:
 	docker cp ./pg_hba.conf shard2:/var/lib/postgresql/data/pg_hba.conf
 	docker cp ./postgresql.conf shard1:/var/lib/postgresql/data/postgresql.conf
 	docker cp ./postgresql.conf shard2:/var/lib/postgresql/data/postgresql.conf
+
+encrypt:
+	docker run --rm -d --name ansible cytopia/ansible sleep infinity
+	docker cp ./.env ansible:/data/.env
+	docker cp ./.key ansible:/data/.key
+	docker exec -it ansible sh -c "ansible-vault encrypt .env --vault-password-file .key"
+	docker cp ansible:/data/.env ./.env-crypt
+	rm .env
+	docker kill ansible
+
+decrypt:
+	docker run --rm -d --name ansible cytopia/ansible sleep infinity
+	docker cp ./.env-crypt ansible:/data/.env
+	docker cp ./.key ansible:/data/.key
+	docker exec -it ansible sh -c "ansible-vault decrypt .env --vault-password-file .key"
+	docker cp ansible:/data/.env ./.env
+	rm .env-crypt
+	docker kill ansible
