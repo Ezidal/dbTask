@@ -52,7 +52,7 @@ login:
 encrypt:
 	docker run --rm -d --name ansible cytopia/ansible sleep infinity
 	docker cp ./.env ansible:/data/.env
-	docker cp ./.key ansible:/data/.key
+	docker cp ./key ansible:/data/.key
 	docker exec -it ansible sh -c "ansible-vault encrypt .env --vault-password-file .key"
 	docker cp ansible:/data/.env ./.env-crypt
 	rm .env
@@ -61,7 +61,7 @@ encrypt:
 decrypt:
 	docker run --rm -d --name ansible cytopia/ansible sleep infinity
 	docker cp ./.env-crypt ansible:/data/.env
-	docker cp ./.key ansible:/data/.key
+	docker cp ./key ansible:/data/.key
 	docker exec -it ansible sh -c "ansible-vault decrypt .env --vault-password-file .key"
 	docker cp ansible:/data/.env ./.env
 	rm .env-crypt
